@@ -1,0 +1,19 @@
+{
+  "name": "react-endless-scroll",
+  "version": "0.0.1",
+  "description": "React Endless Scroll =====================",
+  "main": "dist/react-endless-scroll.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsych/react-endless-scroll.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vsych/react-endless-scroll/issues"
+  },
+  "homepage": "https://github.com/vsych/react-endless-scroll#readme"
+}
