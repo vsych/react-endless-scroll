@@ -1,4 +1,5 @@
 React = require 'react'
+{PropTypes} = React
 ReactDOM = require 'react-dom'
 
 topPosition = (domElt) ->
@@ -7,6 +8,13 @@ topPosition = (domElt) ->
   domElt.offsetTop + topPosition(domElt.offsetParent)
 
 EndlessScroll = React.createClass
+
+  propTypes:
+    isLoading: PropTypes.bool
+    loadMore: PropTypes.func
+    hasMore: PropTypes.bool
+    loader: PropTypes.oneOf PropTypes.element, PropTypes.node
+    threshold: PropTypes.number
 
   getDefaultProps: ->
     pageStart: 0
@@ -18,8 +26,11 @@ EndlessScroll = React.createClass
     @pageLoaded = @props.pageStart
     @attachScrollListener()
 
-  componentDidUpdate: ->
-    @attachScrollListener()
+  componentDidUpdate: (prevProps) ->
+    if hasOwnProperty.call @props, 'isLoading'
+      @attachScrollListener() unless @props.isLoading
+    else
+      @attachScrollListener()
 
   render: ->
     props = @props
